@@ -2,6 +2,9 @@
 
 namespace App\Mcp\Servers;
 
+use App\Mcp\Prompts\ProductivityReportPrompt;
+use App\Mcp\Resources\RecentCompletedTasksResource;
+use App\Mcp\Resources\TaskStatsResource;
 use App\Mcp\Tools\CompleteTaskTool;
 use App\Mcp\Tools\CreateTaskTool;
 use App\Mcp\Tools\SearchTasksTool;
@@ -44,7 +47,8 @@ class TaskServer extends Server
      * @var array<int, class-string<\Laravel\Mcp\Server\Resource>>
      */
     protected array $resources = [
-        //
+        TaskStatsResource::class,
+        RecentCompletedTasksResource::class,
     ];
 
     /**
@@ -53,6 +57,7 @@ class TaskServer extends Server
      * @var array<int, class-string<\Laravel\Mcp\Server\Prompt>>
      */
     protected array $prompts = [
-        //
+        ProductivityReportPrompt::class,
+
     ];
 }
