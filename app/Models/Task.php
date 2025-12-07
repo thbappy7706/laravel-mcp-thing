@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Builders\TaskBuilder;
 use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
@@ -19,15 +20,11 @@ class Task extends Model
         'completed_at' => 'datetime',
     ];
 
-    public function scopeCompleted($query)
+    public function newEloquentBuilder($query): TaskBuilder
     {
-        return $query->where('completed', true);
+        return new TaskBuilder($query);
     }
 
-    public function scopeIncomplete($query)
-    {
-        return $query->where('completed', false);
-    }
 
     public function markComplete():void
     {
