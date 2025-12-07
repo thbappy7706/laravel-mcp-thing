@@ -2,7 +2,9 @@
 
 namespace App\Mcp\Servers;
 
+use App\Mcp\Tools\CompleteTaskTool;
 use App\Mcp\Tools\CreateTaskTool;
+use App\Mcp\Tools\SearchTasksTool;
 use Laravel\Mcp\Server;
 
 class TaskServer extends Server
@@ -31,6 +33,8 @@ class TaskServer extends Server
      */
     protected array $tools = [
         CreateTaskTool::class,
+        CompleteTaskTool::class,
+        SearchTasksTool::class,
 
     ];
 
