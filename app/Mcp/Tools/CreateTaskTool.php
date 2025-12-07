@@ -32,6 +32,8 @@ class CreateTaskTool extends Tool
             'priority.in' => 'Priority must be one of: low, medium, or high.',
         ]);
 
+        $validated['user_id'] = $request->user()->id;
+
         $task = Task::create($validated);
 
         return Response::text(
