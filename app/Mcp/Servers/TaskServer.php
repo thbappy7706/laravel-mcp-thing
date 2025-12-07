@@ -2,6 +2,7 @@
 
 namespace App\Mcp\Servers;
 
+use App\Mcp\Tools\CreateTaskTool;
 use Laravel\Mcp\Server;
 
 class TaskServer extends Server
@@ -29,7 +30,8 @@ class TaskServer extends Server
      * @var array<int, class-string<\Laravel\Mcp\Server\Tool>>
      */
     protected array $tools = [
-        //
+        CreateTaskTool::class,
+
     ];
 
     /**
